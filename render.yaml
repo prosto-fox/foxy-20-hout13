@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: foxy-20-hours
+    env: docker
+    healthCheckPath: /health
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DB_PATH
+        value: /var/data/foxy.db
+    disk:
+      name: foxy-data
+      mountPath: /var/data
+      sizeGB: 1
